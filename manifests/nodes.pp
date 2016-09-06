@@ -1,7 +1,7 @@
-node 'masternode' {
+node 'master' {
 }
 
-node 'agentnode' {
+node 'agent' {
 	include setup
 	
 }
