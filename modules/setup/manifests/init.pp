@@ -11,9 +11,10 @@ class setup {
 	
 
 	class { 'jira':
-    		#javahome    => '/usr/lib/jvm/java-7-openjdk-amd64',
-  	} #->
-	
+  	} ->
+
+	class { 'jenkins':
+  	} 
 	#package { 'git' :
 	#	ensure => present,
 	#} ->
@@ -23,6 +24,4 @@ class setup {
     	#	revision   => '05',
     	#	nexus_root => '/srv',
   	#}
-
-	#include jenkins
 }

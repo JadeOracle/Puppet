@@ -22,8 +22,6 @@ class jira {
 		timeout => 180000,
 		user => root,
 		creates => '/opt/JIRA Software'
-		#cwd => '/opt',
-		#path => ['/usr/bin', '/bin'],
 	} #->
 
 	#exec { 'Swap jiras ports' :

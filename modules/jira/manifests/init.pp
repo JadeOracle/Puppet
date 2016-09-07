@@ -1,6 +1,4 @@
-class jira {
-	$javahome = '/usr/lib/jvm/java-7-openjdk-amd64'
-	
+class jira {	
 	exec { 'Download jira' :
 		command => 'wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.2.1-x64.bin',
 		timeout => 180000,
