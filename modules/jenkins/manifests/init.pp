@@ -20,7 +20,6 @@ class jenkins {
 
 	package { 'jenkins' :
 		ensure => installed,
-		returns => '1',
 	} ->
 
 	exec { 'update ports' :
