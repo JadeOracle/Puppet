@@ -19,6 +19,7 @@ class jira {
 		command => '/opt/atlassian-jira-software-7.2.1-x64.bin -q',
 		timeout => 180000,
 		user => root,
+		returns => '1'
 		creates => '/opt/JIRA Software'
 	} #->
 
