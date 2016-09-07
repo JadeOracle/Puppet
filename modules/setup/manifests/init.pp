@@ -9,12 +9,13 @@ class setup {
   		package => 'openjdk-7-jdk',
 	} ->
 	
-
-	class { 'jira':
+	class { 'jenkins':
   	} ->
 
-	class { 'jenkins':
-  	} 
+	class { 'jira':
+  	}
+
+	
 	#package { 'git' :
 	#	ensure => present,
 	#} ->
