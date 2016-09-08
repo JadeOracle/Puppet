@@ -23,19 +23,9 @@ class jenkins {
 	} ->
 
 	exec { 'update ports' :
-		command => 'sed -i "s/HTTP_PORT=8080/HTTP_PORT=8081/g" jenkins',
+		command => 'sed -i "s/HTTP_PORT=8080/HTTP_PORT=8082/g" jenkins',
 		user => root,
 		cwd => '/etc/default',
 		path => ['/usr/bin', '/bin'],
-	} ->
-
-	exec { 'start jenkins' :
-		command => 'service jenkins start',
-		user => root,
-		path => ['/usr/bin', '/bin'],
-	} 
-
-
-
-
+	}
 }

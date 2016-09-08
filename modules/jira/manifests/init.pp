@@ -19,30 +19,15 @@ class jira {
 		command => '/opt/atlassian-jira-software-7.2.1-x64.bin -q',
 		timeout => 180000,
 		user => root,
-		returns => '1',
-		creates => '/opt/JIRA Software',
-	} #->
+		creates => '/opt/"JIRA Software"',
+	} ->
 
-	#exec { 'Swap jiras ports' :
-	#	command => 'perl -pi -e "s/<Server port="8005" shutdown="SHUTDOWN">/<Server port="8006" shutdown="SHUTDOWN">/g" server.xml && perl -pi -e "s/<Connector port="8080"/<Connector port="8081"/g" server.xml',
-	#	timeout => 180000,
-	#	user => root,
-	#	cwd => '/opt/JIRA Software/conf/',
-	#	path => ['/usr/bin', '/bin'],
-	#} ->
-
-	#exec { 'Stop jira' :
-	#	command => './stop-jira.sh',
-	#	user => root,
-	#	path => ['/opt/JIRA Software/bin/', '/bin'],
-	#} ->
-
-	#exec { 'Start jira' :
-	#	command => './start-jira.sh',
-	#	user => root,
-	#	path => ['/opt/JIRA Software/bin/', '/bin'],
-	#}
-
+	exec { 'Fix jira' :
+		command => 'sed -i "s/"/opt\nSoftware/bin"/"/opt/ JIRA Software/bin"/g" jenkins',
+		user => root,
+		cwd => '/etc/init.d',
+		path => ['/usr/bin', '/bin'],
+	}
 
 
 }
