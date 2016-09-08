@@ -29,8 +29,8 @@ class jenkins {
 		path => ['/usr/bin', '/bin'],
 	} ->
 
-	exec { 'start jenkins' :
-		command => 'service jenkins start',
+	exec { 'restart jenkins' :
+		command => 'service jenkins restart',
 		user => root,
 		path => ['/usr/bin', '/bin'],
 	} 
