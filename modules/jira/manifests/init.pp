@@ -23,7 +23,7 @@ class jira {
 	}
 
 	exec { 'Fix jira' :
-		command => 'sed -i "s@cd \"/opt@@g" jira && sed -i "s@Software/bin\"@cd \"/opt/JIRA Software/bin\"@g" jira',
+		command => 'sed -i "s@cd \"/opt@@g" jira && sed -i "s@/JIRA Software/bin\"@cd \"/opt/JIRA Software/bin\"@g" jira',
 		user => root,
 		cwd => '/etc/init.d',
 		path => ['/usr/bin', '/bin'],
