@@ -23,7 +23,7 @@ class jira {
 	} ->
 
 	exec { 'Fix jira' :
-		command => 'sed -i "s/"/opt\nSoftware/bin"/"/opt/ JIRA Software/bin"/g" jenkins',
+		command => 'sed -i "s/"/opt\nSoftware/bin"/"/opt/JIRA Software/bin"/g"',
 		user => root,
 		cwd => '/etc/init.d',
 		path => ['/usr/bin', '/bin'],
