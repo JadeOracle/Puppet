@@ -1,7 +1,6 @@
 class jenkins {
 	exec { 'get jenkins keything' :
 		command => 'wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -',
-		#creates => '/opt/atlassian-jira-software-7.2.1-x64.bin',
 		user => root,
 		path => ['/usr/bin', '/bin'],
 	} ->
@@ -27,5 +26,12 @@ class jenkins {
 		user => root,
 		cwd => '/etc/default',
 		path => ['/usr/bin', '/bin'],
-	}
+	} ->
+
+	exec { 'restart jenkins' :
+		command => 'service jenkins restart',
+		user => root,
+		path => ['/usr/bin', '/bin'],
+	} 
+
 }
