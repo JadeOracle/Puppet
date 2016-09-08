@@ -1,12 +1,12 @@
 class setup {
-	exec { 'make java7 available':
-		command => 'add-apt-repository ppa:openjdk-r/ppa',
-		user => root,
-		path => [ '/usr/bin', '/bin/' ],
-	} ->
 	
 	class { 'java':
-  		package => 'openjdk-7-jdk',
+	} ->
+	
+	class { 'maven':
+	} ->
+	
+	class { 'git':
 	} ->
 	
 	class { 'jenkins':
@@ -14,11 +14,6 @@ class setup {
 
 	class { 'jira':
   	}
-
-	
-	#package { 'git' :
-	#	ensure => present,
-	#} ->
 
 	#class{ 'nexus':
     	#	version    => '2.8.0',
