@@ -19,15 +19,17 @@ class jira {
 		command => '/opt/atlassian-jira-software-7.2.1-x64.bin -q',
 		timeout => 180000,
 		user => root,
-		creates => '/opt/"JIRA Software"',
-	} ->
+		creates => '/opt/JIRA Software',
+	}
 
 	exec { 'Fix jira' :
-		command => 'sed -i "s/"/opt\nSoftware/bin"/"/opt/ JIRA Software/bin"/g" jenkins',
+		command => 'sed -i "s@cd \"/opt@@g" jira && sed -i "s@Software/bin\"@cd \"/opt/JIRA Software/bin\"@g" jira',
 		user => root,
 		cwd => '/etc/init.d',
 		path => ['/usr/bin', '/bin'],
+		require => exec ['Install jira'],
 	}
 
 
 }
+
