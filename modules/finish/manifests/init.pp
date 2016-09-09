@@ -5,13 +5,13 @@ class finish {
 		path => ['/usr/bin', '/bin'],
 	} 
 
-	exec { 'stop jira' :
+	exec { 'stop jira Final' :
 		command => 'service jira stop',
 		user => root,
 		path => ['/usr/bin', '/bin'],
 	} ->
 
-	exec { 'start jira' :
+	exec { 'start jira Final' :
 		command => 'service jira start',
 		user => root,
 		path => ['/usr/bin', '/bin'],
