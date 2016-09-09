@@ -3,18 +3,16 @@ class finish {
 		command => 'service jenkins restart',
 		user => root,
 		path => ['/usr/bin', '/bin'],
+		require => package ['jenkins'],
 	} 
 
-	exec { 'stop jira Final' :
-		command => 'service jira stop',
-		user => root,
-		path => ['/usr/bin', '/bin'],
-	} ->
-
-	exec { 'start jira Final' :
-		command => 'service jira start',
-		user => root,
-		path => ['/usr/bin', '/bin'],
-	} 
+#	service { 'jira' :
+#		ensure => stopped,
+#		require => exec ['Fix jira pt 3'],
+#	} ->
+#
+#	service { 'jira' :
+#               ensure => running,
+#	} 
 
 }
