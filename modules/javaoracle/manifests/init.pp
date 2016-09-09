@@ -1,4 +1,8 @@
 class javaoracle {
+
+	$accept1 = "echo debconf shared/accepted-oracle-license-v1-1 seen true | \"
+	$accept2 = "echo debconf shared/accepted-oracle-license-v1-1 seen true | \"
+	
 	exec { 'oracle java7 available':
 		command => 'add-apt-repository ppa:webupd8team/java && apt-get update',
 		user => root,
@@ -14,7 +18,7 @@ class javaoracle {
 	} ->
 	
 	exec { 'accept license1':
-		command => 'echo debconf shared/accepted-oracle-license-v1-1 select true | \\',
+		command => $accept1,
 		user => root,
 		path => [ '/usr/bin', '/bin/' ],
 	} -> 
@@ -26,7 +30,7 @@ class javaoracle {
 	} -> 
 	
 	exec { 'accept license3':
-		command => 'echo debconf shared/accepted-oracle-license-v1-1 seen true | \\',
+		command => $accept2,
 		user => root,
 		path => [ '/usr/bin', '/bin/' ],
 	} -> 
