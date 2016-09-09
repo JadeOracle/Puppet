@@ -31,8 +31,7 @@ class nexus {
 	} ->
 	
 	exec { 'start nexus' :
-		command => 'nexus start',
+		command => '/opt/nexus-2.9.2-01/bin/nexus start',
 		user => vagrant,
-		cwd => '/opt/nexus-2.9.2-01/bin',
 	}
 }
