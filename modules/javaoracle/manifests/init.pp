@@ -13,8 +13,26 @@ class javaoracle {
 		ensure 	=> present,
 	} ->
 	
-	exec { 'accept license':
-		command => 'echo debconf shared/accepted-oracle-license-v1-1 select true | \\ndebconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | \\ndebconf-set-selections',
+	exec { 'accept license1':
+		command => 'echo debconf shared/accepted-oracle-license-v1-1 select true | \',
+		user => root,
+		path => [ '/usr/bin', '/bin/' ],
+	} -> 
+	
+	exec { 'accept license2':
+		command => 'debconf-set-selections',
+		user => root,
+		path => [ '/usr/bin', '/bin/' ],
+	} -> 
+	
+	exec { 'accept license3':
+		command => 'echo debconf shared/accepted-oracle-license-v1-1 seen true | \',
+		user => root,
+		path => [ '/usr/bin', '/bin/' ],
+	} -> 
+	
+	exec { 'accept license4':
+		command => 'debconf-set-selections',
 		user => root,
 		path => [ '/usr/bin', '/bin/' ],
 	} -> 
