@@ -34,6 +34,5 @@ class nexus {
 		command => './nexus start',
 		user => vagrant,
 		cwd => '/opt/nexus-2.9.2-01/bin',
-		path => ['/usr/bin', '/bin'],
 	}
 }
