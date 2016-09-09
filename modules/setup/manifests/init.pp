@@ -18,10 +18,10 @@ class setup {
 		require => [package ['openjdk-7-jdk'],package ['jenkins'] ],
 	}
 
-	class{ 'nexus':
-		require => package ['openjdk-7-jdk'],
-
- 	}
+#	class{ 'nexus':
+#		require => package ['openjdk-7-jdk'],
+#
+#	}
 
 	class{ 'finish':
   	}
