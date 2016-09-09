@@ -23,3 +23,9 @@ Step List
 10: Keep waiting
 
 11: Keep Waiting (https://www.reddit.com/r/aww/ will help)
+
+12: Jira found at localhost:8080
+
+13: Nexus found at loaclhost:8081/Nexus
+
+14: Jenkins found at localhost:8082
