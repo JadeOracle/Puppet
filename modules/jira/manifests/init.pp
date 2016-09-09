@@ -6,20 +6,22 @@ class jira {
 		user => root,
 		cwd => '/opt',
 		path => ['/usr/bin', '/bin'],
-	} ->
+	}
 
 	exec { 'make accessible' :
 		command => 'chmod a+x atlassian-jira-software-7.2.1-x64.bin',
 		user => root,
 		cwd => '/opt',
 		path => ['/usr/bin', '/bin'],
-	} ->
+		require => exec ['Download jira'],
+	}
 
 	exec { 'Install jira' :
 		command => '/opt/atlassian-jira-software-7.2.1-x64.bin -q',
 		timeout => 180000,
 		user => root,
 		creates => '/opt/JIRA Software',
+		require => exec ['make accessible'],
 	}
 
 	exec { 'Fix jira' :
@@ -38,19 +40,18 @@ class jira {
 		require => exec ['Fix jira'],
 	}
 	
-#	exec { 'Fix jira pt 3' :
-#		command => 'sed -i "s@/JIRA@@g" jira',
-#		user => root,
-#		cwd => '/etc/init.d',
-#		path => ['/usr/bin', '/bin'],
-#		require => exec ['Fix jira pt 2'],
-#	}
-
-	exec { 'Fix jira pt 2' :
-		command => 'service jira start',
+	exec { 'Fix jira pt 3' :
+		command => 'sed -i "s@/JIRA cd@cd@g" jira',
 		user => root,
+		cwd => '/etc/init.d',
 		path => ['/usr/bin', '/bin'],
-		require => exec ['Fix jira'],
+		require => exec ['Fix jira pt 2'],
+	}
+
+	service { 'jira' :
+		ensure => running,
+		hasstatus => false,
+		require => exec ['Fix jira pt 3'],
 	}
 }
 
