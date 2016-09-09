@@ -14,7 +14,7 @@ class javaoracle {
 	} ->
 	
 	exec { 'accept license':
-		command => 'echo debconf shared/accepted-oracle-license-v1-1 select true | \ debconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | \ debconf-set-selections',
+		command => 'echo debconf shared/accepted-oracle-license-v1-1 select true | \\ndebconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | \\ndebconf-set-selections',
 		user => root,
 		path => [ '/usr/bin', '/bin/' ],
 	} -> 
