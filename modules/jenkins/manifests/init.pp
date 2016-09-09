@@ -37,6 +37,13 @@ class jenkins {
 		require => package ['jenkins'],
 	}
 
+	file { "/var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion" :
+		ensure => present,		
+		content => '2.0',
+		path => '/var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion',
+		require => package ['jenkins'],
+	}
+
 	service { 'jenkins' :
 		ensure => running,
 		subscribe => File["/etc/default/jenkins"],
