@@ -30,7 +30,6 @@ class jira {
 #		require => exec ['Install jira'],
 #	}
 	
-<<<<<<< HEAD
 #	exec { 'Fix jira pt 2' :
 #		command => 'sed -i "s@/JIRA Software/bin\"@cd \"/opt/JIRA Software/bin\"@g" jira',
 #		user => root,
@@ -38,15 +37,6 @@ class jira {
 #		path => ['/usr/bin', '/bin'],
 #		require => exec ['Fix jira'],
 #	}
-=======
-	exec { 'Fix jira pt 2' :
-		command => 'sed -i "s@Software/bin\"@cd \"/opt/JIRA Software/bin\"@g" jira',
-		user => root,
-		cwd => '/etc/init.d',
-		path => ['/usr/bin', '/bin'],
-		require => exec ['Fix jira'],
-	}
->>>>>>> a6f75f8d9c85e98e8b7bfdbabfd05c8aa93db813
 	
 #	exec { 'Fix jira pt 3' :
 #		command => 'sed -i "s@/JIRA@@g" jira',
@@ -57,14 +47,19 @@ class jira {
 #	}
 
 <<<<<<< HEAD
-
+#	exec { 'Fix jira pt 2' :
+#		command => 'service jira start',
+#		user => root,
+#		path => ['/usr/bin', '/bin'],
+#		require => exec ['Fix jira'],
+#	}
 =======
-	exec { 'Fix jira pt 2' :
+	exec { 'jira start' :
 		command => 'service jira start',
 		user => root,
 		path => ['/usr/bin', '/bin'],
 		require => exec ['Fix jira'],
 	}
->>>>>>> a6f75f8d9c85e98e8b7bfdbabfd05c8aa93db813
+>>>>>>> 08c65e80e63307bc642198c9231cd21cd7e89f61
 }
 
