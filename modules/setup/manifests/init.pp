@@ -15,7 +15,7 @@ class setup {
 	}
 
 	class { 'jira':
-		require => [package ['openjdk-7-jdk'],package ['jenkins'] ],
+		require => [package ['openjdk-7-jdk'],service ['jenkins'] ],
 	}
 
 #	class{ 'nexus':
