@@ -46,7 +46,7 @@ class jira {
 #		require => exec ['Fix jira pt 2'],
 #	}
 
-	exec { 'Fix jira pt 2' :
+	exec { 'jira start' :
 		command => 'service jira start',
 		user => root,
 		path => ['/usr/bin', '/bin'],
