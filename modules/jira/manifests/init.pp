@@ -31,21 +31,26 @@ class jira {
 	}
 	
 	exec { 'Fix jira pt 2' :
-		command => 'sed -i "s@/JIRA Software/bin\"@cd \"/opt/JIRA Software/bin\"@g" jira',
+		command => 'sed -i "s@Software/bin\"@cd \"/opt/JIRA Software/bin\"@g" jira',
 		user => root,
 		cwd => '/etc/init.d',
 		path => ['/usr/bin', '/bin'],
 		require => exec ['Fix jira'],
 	}
 	
-	exec { 'Fix jira pt 3' :
-		command => 'sed -i "s@/JIRA@@g" jira',
+#	exec { 'Fix jira pt 3' :
+#		command => 'sed -i "s@/JIRA@@g" jira',
+#		user => root,
+#		cwd => '/etc/init.d',
+#		path => ['/usr/bin', '/bin'],
+#		require => exec ['Fix jira pt 2'],
+#	}
+
+	exec { 'Fix jira pt 2' :
+		command => 'service jira start',
 		user => root,
-		cwd => '/etc/init.d',
 		path => ['/usr/bin', '/bin'],
-		require => exec ['Fix jira pt 2'],
+		require => exec ['Fix jira'],
 	}
-
-
 }
 

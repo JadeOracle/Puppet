@@ -1,5 +1,5 @@
 class finish {
-	exec { 'restart jenkins' :
+	exec { 'restart jenkins final' :
 		command => 'service jenkins restart',
 		user => root,
 		path => ['/usr/bin', '/bin'],
@@ -9,7 +9,7 @@ class finish {
 		command => 'service jira stop',
 		user => root,
 		path => ['/usr/bin', '/bin'],
-	} 
+	} ->
 
 	exec { 'start jira' :
 		command => 'service jira start',
