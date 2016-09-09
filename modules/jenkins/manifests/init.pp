@@ -33,6 +33,7 @@ class jenkins {
 
 	file { "/etc/default/jenkins" :
 		source => "/etc/default/jenkins",
+		require => package ['jenkins'],
 	}
 
 	service { 'jenkins' :
