@@ -14,7 +14,7 @@ class javaoracle {
 	} ->
 	
 	exec { 'accept license1':
-		command => 'echo debconf shared/accepted-oracle-license-v1-1 select true | \',
+		command => 'echo debconf shared/accepted-oracle-license-v1-1 select true | \ ',
 		user => root,
 		path => [ '/usr/bin', '/bin/' ],
 	} -> 
@@ -26,7 +26,7 @@ class javaoracle {
 	} -> 
 	
 	exec { 'accept license3':
-		command => 'echo debconf shared/accepted-oracle-license-v1-1 seen true | \',
+		command => 'echo debconf shared/accepted-oracle-license-v1-1 seen true | \ ',
 		user => root,
 		path => [ '/usr/bin', '/bin/' ],
 	} -> 
