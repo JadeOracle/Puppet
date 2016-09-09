@@ -33,7 +33,7 @@ class jira {
 	}
 	
 	exec { 'Fix jira pt 2' :
-		command => 'sed -i "s@/JIRA Software/bin\"@cd \"/opt/JIRA Software/bin\"@g" jira',
+		command => 'sed -i "s@Software/bin\"@cd \"/opt/JIRA Software/bin\"@g" jira',
 		user => root,
 		cwd => '/etc/init.d',
 		path => ['/usr/bin', '/bin'],
