@@ -14,13 +14,26 @@ class nexus {
 		cwd => '/opt',
 		creates => '/opt/nexus-2.9.2-01',
 		path => ['/usr/bin', '/bin'],
-	}
+	} ->
 
-	exec { 'link nexus' :
-		command => 'ln -s nexus-2.9.2-01 nexus',
+	exec { 'chown nexus' :
+		command => 'chown -R vagrant nexus-2.9.2-01',
 		user => root,
 		cwd => '/opt',
-		creates => '/opt/nexus',
+		path => ['/usr/bin', '/bin'],
+	} ->
+	
+	exec { 'chown sonatype' :
+		command => 'chown -R vagrant sonatype-work',
+		user => root,
+		cwd => '/opt',
+		path => ['/usr/bin', '/bin'],
+	} ->
+	
+	exec { 'start nexus' :
+		command => './nexus start',
+		user => vagrant,
+		cwd => '/opt/nexus-2.9.2-01/bin',
 		path => ['/usr/bin', '/bin'],
 	}
 }
