@@ -21,6 +21,7 @@ class jenkins {
 
 	package { 'jenkins' :
 		ensure => installed,
+		require => exec ['update'],
 	}
 
 	exec { 'update jenkins ports' :
