@@ -1,6 +1,6 @@
 class javaoracle {
 	exec { 'oracle java7 available':
-		command => 'add-apt-repository ppa:webupd8team/java',
+		command => 'add-apt-repository ppa:webupd8team/java && apt-get update',
 		user => root,
 		path => [ '/usr/bin', '/bin/' ],
 	}
