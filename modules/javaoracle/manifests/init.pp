@@ -5,6 +5,10 @@ class javaoracle {
 		path => [ '/usr/bin', '/bin/' ],
 	} ->
 	
+	package { 'debconf':
+		ensure 	=> present,
+	} ->
+	
 	package { 'debconf-utils':
 		ensure 	=> present,
 	} ->
