@@ -23,7 +23,4 @@ class setup {
 		require => package ['oracle-java7-installer'],
 
 	}
-
-	class{ 'finish':
-  	}
 }
