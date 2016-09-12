@@ -29,9 +29,12 @@ class nexus {
 		cwd => '/opt',
 		path => ['/usr/bin', '/bin'],
 	} ->
-	
-	exec { 'start nexus' :
-		command => '/opt/nexus-2.9.2-01/bin/nexus start',
-		user => vagrant,
-	}
+
+	service { "nexus" :
+		path => '/opt/nexus-2.9.2-01/bin/',
+		ensure => running,
+		start => "su vagrant /opt/nexus-2.9.2-01/bin/nexus start",
+		stop => "su vagrant /opt/nexus-2.9.2-01/bin/nexus stop",
+		status => "su vagrant /opt/nexus-2.9.2-01/bin/nexus status",
+		}
 }
