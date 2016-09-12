@@ -29,7 +29,7 @@ class jenkins {
 		user => root,
 		cwd => '/etc/default',
 		path => ['/usr/bin', '/bin'],
-		require => package ['jenkins'],
+		require => service ['jenkins'],
 	}
 
 	file { "/etc/default/jenkins" :
