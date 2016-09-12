@@ -34,7 +34,8 @@ class jenkins {
 
 	file { "/etc/default/jenkins" :
 		source => "/etc/default/jenkins",
-		require => service ['jenkins'],
+		notify  => Service["jenkins"],
+		require => package ['jenkins'],
 	}
 
 	file { "/var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion" :
@@ -46,7 +47,7 @@ class jenkins {
 
 	service { 'jenkins' :
 		ensure => running,
-		subscribe => File["/etc/default/jenkins"],
+		require => package ['jenkins'],
 		
 	}
 }
