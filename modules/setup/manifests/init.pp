@@ -13,10 +13,10 @@ class setup {
 	
 	class { 'jenkins':
 		require => package ['oracle-java7-installer'],
-	}
+	} ->
 
 	class { 'jira':
-		require => [package ['oracle-java7-installer'],service ['jenkins'] ],
+		require => package ['oracle-java7-installer'],
 	}
 
 	class{ 'nexus':
