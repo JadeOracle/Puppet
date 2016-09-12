@@ -24,8 +24,27 @@ Step List
 
 11: Keep Waiting (https://www.reddit.com/r/aww/ will help)
 
-12: Jira found at localhost:8080
 
-13: Nexus found at loaclhost:8081/Nexus
 
-14: Jenkins found at localhost:8082
+Optional Checks Of Installations
+
+Java
+Version can be checked using command " java -version "
+
+Maven
+Version can be checked using command " mvn -version "
+
+Git
+Version can be checked using command " git --version "
+Initial git folder can be found at "/home/vagrant/Documents/" (Should find a folder named Battleships)  
+
+Jira
+Site found at localhost:8080
+
+Nexus
+Site found at loaclhost:8081/Nexus
+Status can also be checked using the command  " su vagrant /opt/nexus-2.9.2-01/bin/nexus status "
+
+Jenkins
+Site found at localhost:8082
+Status can also be checked using the command  " service jenkins status "
