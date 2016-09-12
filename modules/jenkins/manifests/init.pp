@@ -29,12 +29,12 @@ class jenkins {
 		user => root,
 		cwd => '/etc/default',
 		path => ['/usr/bin', '/bin'],
-		require => service ['jenkins'],
+		require => File["/etc/default/jenkins"],
 	}
 
 	file { "/etc/default/jenkins" :
 		source => "/etc/default/jenkins",
-		require => package ['jenkins'],
+		require => service ['jenkins'],
 	}
 
 	file { "/var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion" :
