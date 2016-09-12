@@ -47,5 +47,6 @@ class jenkins {
 	service { 'jenkins' :
 		ensure => running,
 		subscribe => File["/etc/default/jenkins"],
+		before => service['jira'],
 	}
 }
