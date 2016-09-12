@@ -50,6 +50,7 @@ class jira {
 
 	service { 'jira' :
 		ensure => running,
+		enable => "true",
 		hasstatus => false,
 		require => exec ['Fix jira pt 3'],
 	}

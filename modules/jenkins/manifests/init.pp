@@ -47,6 +47,7 @@ class jenkins {
 
 	service { 'jenkins' :
 		ensure => running,
+		enable => "true",
 		require => package ['jenkins'],
 		
 	}
