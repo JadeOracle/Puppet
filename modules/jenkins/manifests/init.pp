@@ -29,11 +29,12 @@ class jenkins {
 		user => root,
 		cwd => '/etc/default',
 		path => ['/usr/bin', '/bin'],
-		require => service ['jenkins'],
+		require => File["/etc/default/jenkins"],
 	}
 
 	file { "/etc/default/jenkins" :
 		source => "/etc/default/jenkins",
+		notify  => Service["jenkins"],
 		require => package ['jenkins'],
 	}
 
@@ -46,7 +47,7 @@ class jenkins {
 
 	service { 'jenkins' :
 		ensure => running,
-		subscribe => File["/etc/default/jenkins"],
+		require => package ['jenkins'],
 		
 	}
 }
