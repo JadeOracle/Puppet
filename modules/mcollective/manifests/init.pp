@@ -2,7 +2,6 @@ class mcollective {
   # Install
   package {'mcollective':
     ensure => latest,
-    require => service['activemq']
   }
 
   # Run
