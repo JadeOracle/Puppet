@@ -2,7 +2,7 @@ class setup {
 	
 
 	class { 'javaoracle':
-	} ->
+	} 
 	
 	class { 'maven':
 		require => package ['oracle-java7-installer'],
@@ -22,10 +22,6 @@ class setup {
 	class { 'nexus':
 		require => package ['oracle-java7-installer'],
 
-	}
-
-	class { 'activemq':
-		require => package ['oracle-java7-installer', 'maven'],
 	}
 
 	class { 'mcollective':
