@@ -47,6 +47,13 @@ class mcollective {
 		require => Package['mcollective'],
     	}
 
+	file { "server.cfg":
+		ensure => file,
+        	source => 'puppet:///modules/mcollective/server.cfg',
+		path => '/etc/mcollective/server.cfg',
+		require => Package['mcollective'],
+    	}	
+
   # Restart the service when any settings change
   #Package['mcollective'] -> Mcollective::Setting <| |> ~> Service['mcollective']
 }
