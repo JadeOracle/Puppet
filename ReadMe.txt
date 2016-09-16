@@ -32,7 +32,6 @@ Optional Checks Of Installations
 
 MCollective 
 Can be seen to be installed by using command "sudo mco"
-(Currently not fully functioning)
 
 Java
 Version can be checked using command "java -version"
